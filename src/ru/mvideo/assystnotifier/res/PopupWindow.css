@@ -1,0 +1,10 @@
+/*.button {*/
+/*-fx-background-radius: 12;*/
+/*-fx-padding: 5;*/
+/*-fx-shadow-highlight-color: f0f0f0;*/
+/*!*noinspection CssInvalidFunction*!*/
+/*-fx-body-color: linear-gradient(from 0em 0em to 0em 2.083333em, white, #D7D7D7, white);*/
+/*}*/
+#lowHBox {
+    -fx-background-color: e5e5e5;
+}

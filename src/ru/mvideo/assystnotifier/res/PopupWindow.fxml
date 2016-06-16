@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<GridPane fx:controller="ru.mvideo.assystnotifier.PopupW.PopupWindowController" maxHeight="+Infinity"
+          maxWidth="+Infinity" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" stylesheets="@PopupWindow.css">
+    <children>
+        <HBox id="lowHBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="+Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+            <children>
+                <Button alignment="CENTER" contentDisplay="CENTER" minWidth="80.0" mnemonicParsing="false"
+                        prefWidth="80.0" text="OK"/>
+                <Button alignment="CENTER" contentDisplay="CENTER" minWidth="80.0" mnemonicParsing="false"
+                        prefWidth="80.0" text="Подробнее"/>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </padding>
+        </HBox>
+        <GridPane hgap="14.0" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                  vgap="20.0">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0"
+                           GridPane.valignment="CENTER">
+                    <image>
+                        <Image url="@AlertDialog.png"/>
+                    </image>
+                </ImageView>
+                <VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" prefWidth="400.0" spacing="7.0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <children>
+                        <Label fx:id="messageLabel" text="На Вас назначена заявка с номером: 2006389"
+                               textAlignment="LEFT" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="13.0"/>
+                            </font>
+                        </Label>
+                        <Label text="Заявка с ВЫСОКИМ импактом!" textFill="RED"/>
+                        <Label fx:id="detailsLabel"
+                               text="Описание: Добрый день,прошу исправить:  469565344 51 ZFPR_SDPICK Не удалось распределить товар 000000000030024673 по позициям поставок S220 11.06.2016 14:51:43"
+                               textAlignment="LEFT" wrapText="true">
+                            <font>
+                                <Font size="12.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity"/>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="+Infinity" minWidth="-Infinity"/>
+            </columnConstraints>
+            <padding>
+                <Insets bottom="14.0" left="14.0" right="14.0" top="14.0"/>
+            </padding>
+            <rowConstraints>
+                <RowConstraints maxHeight="+Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="ALWAYS"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="NEVER"/>
+            </rowConstraints>
+        </GridPane>
+    </children>
+</GridPane>
