@@ -5,8 +5,9 @@
 <?import javafx.scene.layout.*?>
 
 <GridPane alignment="TOP_CENTER" hgap="10.0" maxHeight="250.0" maxWidth="250" minHeight="250.0" minWidth="250"
-          prefHeight="250.0" prefWidth="250.0" stylesheets="@login.css" vgap="10.0" xmlns="http://javafx.com/javafx/8"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.mvideo.assystnotifier.LoginWindowController">
+          prefHeight="250.0" prefWidth="250.0" stylesheets="@loginWindow.css" vgap="10.0"
+          xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.mvideo.assystnotifier.LoginW.LoginWindowController">
     <children>
         <Label id="welcome-text" text="  Welcome" GridPane.columnSpan="2" GridPane.halignment="CENTER"
                GridPane.valignment="TOP"/>
@@ -28,7 +29,8 @@
                 <Insets/>
             </GridPane.margin>
         </CheckBox>
-        <Button mnemonicParsing="false" text="Войти" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+        <Button fx:id="loginBtn" onAction="#doLogin" mnemonicParsing="false" text="Войти" GridPane.columnIndex="1"
+                GridPane.halignment="RIGHT"
                 GridPane.rowIndex="4" GridPane.valignment="TOP">
             <GridPane.margin>
                 <Insets/>
