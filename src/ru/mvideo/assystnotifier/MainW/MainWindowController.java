@@ -77,7 +77,7 @@ public class MainWindowController {
                 Stage primaryStage = new Stage();
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("../res/PopupWindow.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/ru/mvideo/assystnotifier/res/PopupWindow.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -85,7 +85,7 @@ public class MainWindowController {
                 primaryStage.setScene(new Scene(root));
                 primaryStage.sizeToScene();
                 primaryStage.setResizable(false);
-                primaryStage.getIcons().add(new Image(Main.class.getResource("res/icon32.png").toExternalForm()));
+                primaryStage.getIcons().add(new Image(Main.class.getResource("/ru/mvideo/assystnotifier/res/icon32.png").toExternalForm()));
                 primaryStage.show();
                 primaryStage.setX(round(Screen.getPrimary().getVisualBounds().getWidth() / 2) - round(primaryStage.getWidth() / 2));
                 primaryStage.setY(round(Screen.getPrimary().getVisualBounds().getHeight() / 2) - round(primaryStage.getHeight() / 2));
