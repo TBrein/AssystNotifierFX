@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="TOP_CENTER" hgap="10.0" maxHeight="250.0" maxWidth="250" minHeight="250.0" minWidth="250"
+          prefHeight="250.0" prefWidth="250.0" stylesheets="@login.css" vgap="10.0" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.mvideo.assystnotifier.LoginWindowController">
+    <children>
+        <Label id="welcome-text" text="  Welcome" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+               GridPane.valignment="TOP"/>
+        <Label layoutX="271.0" layoutY="10.0" text="Логин:" GridPane.rowIndex="1"/>
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </TextField>
+        <Label layoutX="73.0" layoutY="122.0" text="Пароль:" GridPane.rowIndex="2"/>
+        <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </PasswordField>
+        <CheckBox mnemonicParsing="false" text="Запомнить" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                  GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </CheckBox>
+        <Button mnemonicParsing="false" text="Войти" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+                GridPane.rowIndex="4" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets/>
+            </GridPane.margin>
+        </Button>
+    </children>
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+</GridPane>

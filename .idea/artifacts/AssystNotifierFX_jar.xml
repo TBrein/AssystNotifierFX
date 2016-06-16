@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AssystNotifierFX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AssystNotifierFX_jar</output-path>
+    <root id="archive" name="AssystNotifierFX.jar">
+      <element id="module-output" name="AssystNotifierFX" />
+    </root>
+  </artifact>
+</component>
