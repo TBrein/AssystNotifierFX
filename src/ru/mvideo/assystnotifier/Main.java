@@ -2,12 +2,8 @@ package ru.mvideo.assystnotifier;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
+import ru.mvideo.assystnotifier.LoginW.LoginWindow;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,20 +13,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("res/loginWindow.fxml"));
-        primaryStage.setTitle("MVIDEO ASSYST NOTIFIER");
-        primaryStage.setScene(new Scene(root, 300, 290));
-        primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getResource("res/icon32.png").toExternalForm()));
-        primaryStage.setOnShown(event -> {
-            primaryStage.setX(Screen.getPrimary().getVisualBounds().getWidth() - primaryStage.getWidth());
-            primaryStage.setY(Screen.getPrimary().getVisualBounds().getHeight() - primaryStage.getHeight());
-        });
-        primaryStage.show();
-
-        System.out.println(primaryStage.getHeight());
-        System.out.println(primaryStage.getWidth());
-
+        LoginWindow lw = new LoginWindow();
+        lw.showWindow();
 //        addAppToTray();
     }
 

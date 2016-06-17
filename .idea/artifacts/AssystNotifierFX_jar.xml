@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/AssystNotifierFX_jar</output-path>
     <root id="archive" name="AssystNotifierFX.jar">
       <element id="module-output" name="AssystNotifierFX" />
-      <element id="library" level="project" name="lib" />
     </root>
   </artifact>
 </component>

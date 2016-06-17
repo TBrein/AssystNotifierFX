@@ -2,7 +2,7 @@ package ru.mvideo.assystnotifier;
 
 import javax.swing.*;
 
-class AssystConnectionDetail {
+public class AssystConnectionDetail {
     static final String DEF_SERVER_NAME = "10.95.1.56";
     private static final int DEF_PORT_NUMBER = 1433;
     private static final String DEF_DB_NAME = "mvideorus_db";

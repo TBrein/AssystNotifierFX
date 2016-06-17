@@ -12,14 +12,12 @@ public class AssystDB {
 
     private Connection con = null;
 
-    private AssystDB() {
-
+    public AssystDB(AssystConnectionDetail assystConnectionDetail) {
+        initConnection(assystConnectionDetail);
     }
 
-    public Connection getInstance(AssystConnectionDetail assystConnectionDetail) {
-        if (con != null)
-            return con;
-        else {
+    private void initConnection(AssystConnectionDetail assystConnectionDetail) {
+        if (con == null) {
             if (assystConnectionDetail != null) {
                 SQLServerDataSource ds = new SQLServerDataSource();
                 ds.setServerName(assystConnectionDetail.getServerName());
@@ -28,21 +26,35 @@ public class AssystDB {
                 ds.setUser(assystConnectionDetail.getUserLogin());
                 ds.setPassword(assystConnectionDetail.getUserPassword());
                 try {
-                    return ds.getConnection();
+                    con = ds.getConnection();
                 } catch (SQLServerException e) {
                     JOptionPane.showMessageDialog(null, "Не удалось подключиться к БД ASSYST под логином - " + assystConnectionDetail.getUserLogin(), "Ошибка подключения", JOptionPane.ERROR_MESSAGE);
                 }
             } else JOptionPane.showMessageDialog(null, "AssystConnectionDetail is null!", "Ошибка подключения", JOptionPane.ERROR_MESSAGE);
         }
-        return null;
     }
 
-    public ResultSet executeSQLQuery(Connection con, String sqlQuery) {
+    private ResultSet executeSQLQuery(String sqlQuery) {
         try {
             return con.prepareCall(sqlQuery).executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+//            Ошибка выполнения SQL скрипта
         }
         return null;
+    }
+
+    public String getFullUserNameByLogin(String login) throws SQLException {
+        ResultSet rs;
+        rs = executeSQLQuery(String.format("SELECT u.assyst_usr_n FROM assyst_usr u WHERE u.assyst_usr_sc = '%s';", login));
+        if (rs != null && rs.next()) {
+            return rs.getString("assyst_usr_n");
+        } else {
+            JOptionPane.showMessageDialog(null, "Не удалось получить ФИО пользователя под логином \"" + login + "\" ", "Ошибка", JOptionPane.ERROR_MESSAGE);
+        }
+        return "";
+    }
+
+    public void closeConnection() throws SQLException {
+        con.close();
     }
 }

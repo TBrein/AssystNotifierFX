@@ -1,28 +1,18 @@
 package ru.mvideo.assystnotifier.MainW;
 
+import ru.mvideo.assystnotifier.PopupW.PopupWindow;
+
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-import ru.mvideo.assystnotifier.Main;
-
-import javax.swing.JOptionPane;
-
-import java.io.IOException;
-
-import static java.lang.Math.round;
+import ru.mvideo.assystnotifier.User;
 
 public class MainWindowController {
 
@@ -56,7 +46,9 @@ public class MainWindowController {
 
     @FXML
     void initialize() {
-        welcomeUserText.setText(String.format(welcomeUserText.getText(), "Бедарев Вячеслав Сергеевич"));
+        User user;
+        user = User.getInstance();
+        welcomeUserText.setText(String.format(welcomeUserText.getText(), user.getFullUserName()));
 
         ft = new FadeTransition(Duration.millis(600), autostartBar);
 
@@ -74,23 +66,8 @@ public class MainWindowController {
                 ft.stop();
                 autostartBar.setVisible(false);
 
-                Stage primaryStage = new Stage();
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("/ru/mvideo/assystnotifier/res/PopupWindow.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                primaryStage.setTitle("Dialog");
-                primaryStage.setScene(new Scene(root));
-                primaryStage.sizeToScene();
-                primaryStage.setResizable(false);
-                primaryStage.getIcons().add(new Image(Main.class.getResource("/ru/mvideo/assystnotifier/res/icon32.png").toExternalForm()));
-                primaryStage.show();
-                primaryStage.setX(round(Screen.getPrimary().getVisualBounds().getWidth() / 2) - round(primaryStage.getWidth() / 2));
-                primaryStage.setY(round(Screen.getPrimary().getVisualBounds().getHeight() / 2) - round(primaryStage.getHeight() / 2));
-
-
+                PopupWindow pw = new PopupWindow();
+                pw.showWindow();
             });
 //            JOptionPane.showMessageDialog(null, "Запущен процесс отслеживания назначений инцидентов...", "Автостарт", JOptionPane.INFORMATION_MESSAGE);
         }).start();
